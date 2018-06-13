@@ -1,0 +1,10 @@
+<div class='panel panel-primary' *ngIf='ingredient'>
+  <div class='panel-heading'>
+    <h3>ingredient Details</h3>
+    <div>Ingredient: {{ingredient.ingredientName}}</div>
+    <div>Description: {{ingredient.indredientDescription}}</div>
+    <div>Price: {{ingredient.ingredientPrice}}</div>
+  </div>
+</div>
+
+<a class='btn btn-default' [routerLink]="['/ingredients']">Back</a>

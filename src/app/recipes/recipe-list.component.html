@@ -1,0 +1,23 @@
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    <h3>Recipe List</h3>
+  </div>
+</div>
+<div class='table-responsive'>
+  <table class='table' *ngIf='recipes && recipes.length'>
+    <thead>
+      <tr>
+        <th>Recipe id</th>
+        <th>Recipe name</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let recipe of recipes'>
+        <td> {{recipe.recipeId}}</td>
+        <td> {{recipe.recipeName}}</td>
+        <td><a [routerLink]="['/recipe', recipe.recipeId]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

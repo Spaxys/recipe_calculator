@@ -1,0 +1,24 @@
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    <h3>ingredient List</h3>
+  </div>
+</div>
+<div class='table-responsive'>
+  <table class='table' *ngIf='ingredients && ingredients.length'>
+    <thead>
+      <tr>
+        <th>ingredient id</th>
+        <th>ingredient name</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let ingredient of ingredients'>
+        <td> {{ingredient.ingredientId}}</td>
+        <td> {{ingredient.ingredientName}}</td>
+        <td><a [routerLink]="['/ingredient', ingredient.ingredientId]">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<a [routerLink]="['/ingredients/create']">Create ingredient</a>
