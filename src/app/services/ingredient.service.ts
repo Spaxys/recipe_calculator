@@ -8,10 +8,10 @@ import { Headers } from '@angular/http';
 @Injectable()
 export class IngredientService implements IServiceService{
     //File url
-    private _productUrl = "./assets/json/ingredients.json";
+    // private _productUrl = "./assets/json/ingredients.json";
 
     //Server url
-    // private _productUrl = "http://localhost:3000/ingredients";
+    private _productUrl = "http://localhost:3000/ingredients";
 
   private  _httpOptions = {
     'Content-Type': 'application/json'
@@ -34,32 +34,31 @@ export class IngredientService implements IServiceService{
     }
     post(object: IIngredient): Observable<any> {
         //If using the http clienct
-        console.log(object);
+        console.log("Posting: " + object);
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
             })
           };
         return this._http.post(this._productUrl, JSON.stringify(object), httpOptions);
-        
-    //     var fs = require('fs'); //File system module
-    //     //If writing to the file system
-    //     fs.writeFile(this._productUrl, JSON.stringify(object), function(err){
-    //         if(err) {
-    //          console.error(err);
-    //          Observable.throw( "Failed with post" );
-    //         }
-    //         console.info('Successfully posted ingredient to json file');
-
-    //     // .do(console.log(object))
-    //     // .catch();
-    // });
-    //     return Observable.create(true);
     }
     put(id: any, object: any): Observable<any> {
-        throw new Error("Method not implemented.");
+        console.log("Putting: " + object);
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+            })
+          };
+        return this._http.put(this._productUrl, JSON.stringify(object), httpOptions);
     }
     delete(id: any): Observable<any> {
-        throw new Error("Method not implemented.");
+        console.log("Deleting with id: " + id);
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              'id': id
+            })
+          };
+        return this._http.delete(this._productUrl + "/" + id);
     }
 }

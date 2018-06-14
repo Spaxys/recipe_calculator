@@ -17,6 +17,7 @@
         <td> {{ingredient.ingredientId}}</td>
         <td> {{ingredient.ingredientName}}</td>
         <td><a [routerLink]="['/ingredient', ingredient.ingredientId]">Details</a></td>
+        <td><a [routerLink]="['/ingredient/delete', ingredient.ingredientId]">Delete</a></td>
       </tr>
     </tbody>
   </table>

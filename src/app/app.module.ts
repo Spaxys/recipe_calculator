@@ -10,6 +10,8 @@ import { IngredientList } from './ingredients/ingredient-list.component';
 import { IngredientDetail } from './ingredients/ingredient-detail.component';
 import { IIngredient } from './interfaces/ingredient';
 import { IngredientCreateComponent } from './ingredients/ingredient-create.component';
+import { IngredientEditComponent } from './ingredients/ingredient-edit.component';
+import { IngredientDeleteComponent } from './ingredients/ingredient-delete.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { IngredientCreateComponent } from './ingredients/ingredient-create.compo
     IngredientList,
     IngredientDetail,
     IngredientCreateComponent,
+    IngredientEditComponent,
+    IngredientDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,7 @@ import { IngredientCreateComponent } from './ingredients/ingredient-create.compo
       { path: 'recipe/:recipeId', component: RecipeDetail},
       { path: 'ingredients', component: IngredientList},
       { path: 'ingredient/:ingredientId', component: IngredientDetail},
+      { path: 'ingredient/delete/:ingredientId', component: IngredientDeleteComponent},
       { path: 'ingredients/create', component: IngredientCreateComponent},
       { path: 'welcome', component: RecipeList},
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
