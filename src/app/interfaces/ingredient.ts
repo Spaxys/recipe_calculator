@@ -1,5 +1,6 @@
 export interface IIngredient {
-    ingredientId: number;
+    id: number;
+    // ingredientId: number;
     ingredientName: string;
     ingredientDescription: string;
     ingredientPrice: number;

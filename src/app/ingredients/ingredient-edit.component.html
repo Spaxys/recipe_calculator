@@ -1,3 +1,12 @@
-<p>
-  ingredient-edit works!
-</p>
+<div class='panel panel-primary' *ngIf='ingredient'>
+  <div class='panel-heading'>
+    <h3>Edit ingredient</h3>
+    <div>Ingredient:<input type=text [(ngModel)]='ingredient.ingredientName'/></div>
+    <div>Description: <input type=text [(ngModel)]='ingredient.ingredientDescription'/></div>
+    <div>Price: <input type=number [(ngModel)]='ingredient.ingredientPrice'/></div>
+  </div>
+</div>
+
+<div><button class='btn btn-primary'
+(click)='put()'>Submit</button></div>
+<a class='btn btn-default' [routerLink]="['/ingredients']">Back</a>

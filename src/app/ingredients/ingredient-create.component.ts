@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IngredientService } from '../services/ingredient.service';
+import { Router } from '@angular/router';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-ingredient-create.component',
@@ -8,7 +10,7 @@ import { IngredientService } from '../services/ingredient.service';
 })
 export class IngredientCreateComponent implements OnInit {
 
-  constructor(private _ingredientsService: IngredientService) { }
+  constructor(private _ingredientsService: IngredientService, private _router: Router) { }
 
   ingredientName;
   ingredientDescription;
@@ -22,6 +24,7 @@ export class IngredientCreateComponent implements OnInit {
       // ingredientId: Math.ceil(Math.random() * 100000)
     };
     this._ingredientsService.post(ingredient).subscribe();
+    this._router.navigate(["ingredients"]);
   }
 
   ngOnInit() {

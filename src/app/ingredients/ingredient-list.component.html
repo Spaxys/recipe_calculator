@@ -14,10 +14,11 @@
     </thead>
     <tbody>
       <tr *ngFor='let ingredient of ingredients'>
-        <td> {{ingredient.ingredientId}}</td>
+        <td> {{ingredient.id}}</td>
         <td> {{ingredient.ingredientName}}</td>
-        <td><a [routerLink]="['/ingredient', ingredient.ingredientId]">Details</a></td>
-        <td><a [routerLink]="['/ingredient/delete', ingredient.ingredientId]">Delete</a></td>
+        <td><a [routerLink]="['/ingredient', ingredient.id]">Details</a></td>
+        <td><a [routerLink]="['/ingredient/edit', ingredient.id]">Edit</a></td>
+        <td><a [routerLink]="['/ingredient/delete', ingredient.id]">Delete</a></td>
       </tr>
     </tbody>
   </table>

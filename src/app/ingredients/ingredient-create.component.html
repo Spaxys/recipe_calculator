@@ -1,12 +1,15 @@
-<p>
-  ingredient-create.component works!
-</p>
+<h2>Create ingredient</h2>
+<div>Name
+  <input type=text 
+[(ngModel)]='ingredientName'/></div>
+<div>Description
 <input type=text 
-[(ngModel)]='ingredientName'/>
-<input type=text 
-[(ngModel)]='ingredientDescription'/>
+[(ngModel)]='ingredientDescription'/></div>
+
+<div>Price
 <input type=number 
-[(ngModel)]='ingredientPrice'/>
+[(ngModel)]='ingredientPrice'/></div>
+
 
 <button class='btn btn-primary'
 (click)='create()'>Create</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IIngredient } from '../interfaces/ingredient';
 import { IngredientService } from '../services/ingredient.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ingredient-list',
@@ -11,7 +12,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class IngredientList implements OnInit {
 
-  constructor(private _ingredientsService: IngredientService) { }
+  constructor(private _ingredientsService: IngredientService,
+  private _router: Router) { 
+    this._router.onSameUrlNavigation = "reload";
+  }
 
   ingredients: IIngredient[];
   errorMessage: any;

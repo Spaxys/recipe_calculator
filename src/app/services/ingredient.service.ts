@@ -1,5 +1,5 @@
 import { IIngredient } from '../interfaces/ingredient';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IServiceService } from './IService.service';
@@ -18,8 +18,8 @@ export class IngredientService implements IServiceService{
   };
     constructor(private _http: HttpClient) {}
 
-    getAll(): Observable<IIngredient[]>{
-        return this._http.get<IIngredient[]>(this._productUrl);
+    getAll(): Observable<any>{
+        return this._http.get<any>(this._productUrl);
         //  .do(data => console.log('All: ' + JSON.stringify(data)));
         // .catch(this.handleError);
         
@@ -43,22 +43,28 @@ export class IngredientService implements IServiceService{
         return this._http.post(this._productUrl, JSON.stringify(object), httpOptions);
     }
     put(id: any, object: any): Observable<any> {
-        console.log("Putting: " + object);
+        console.log("Putting: " + JSON.stringify(object));
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
             })
           };
-        return this._http.put(this._productUrl, JSON.stringify(object), httpOptions);
+        return this._http.put(this._productUrl + "/" + id, JSON.stringify(object), httpOptions);
     }
     delete(id: any): Observable<any> {
         console.log("Deleting with id: " + id);
+        var urlToCall = this._productUrl + "/" + id;
+        console.log("Url to call: " + urlToCall)
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
-              'id': id
-            })
+            }),
+            params: new HttpParams({
+        }).append(
+            'id',
+            id
+        )
           };
-        return this._http.delete(this._productUrl + "/" + id);
+        return this._http.delete(urlToCall, httpOptions);
     }
 }

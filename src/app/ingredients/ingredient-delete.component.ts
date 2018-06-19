@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IngredientService } from '../services/ingredient.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingredient-delete',
@@ -9,22 +9,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class IngredientDeleteComponent implements OnInit {
 
-  constructor(private _ingredientsService: IngredientService, private _route: ActivatedRoute) { }
+  constructor(private _ingredientsService: IngredientService, private _route: ActivatedRoute,
+  private _router: Router) { }
 
   ingredientName;
   ingredientDescription;
   ingredientPrice;
-  ingredientId;
   @Input() id;
 
   delete() {
-    this._ingredientsService.delete(this.ingredientId).subscribe();
+    this._ingredientsService.delete(this.id).subscribe();
+    this._router.navigate(["ingredients"]);
   }
 
   ngOnInit() {
-    let id = +this._route.snapshot.paramMap.get('ingredientId');
+    let id = +this._route.snapshot.paramMap.get('id');
     this.id = id;
-    this.ingredientId = this.id;
   }
 
 }

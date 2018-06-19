@@ -12,19 +12,20 @@ import { IIngredient } from '../interfaces/ingredient';
 export class IngredientDetail implements OnInit {
 
 
-  constructor(private _route: ActivatedRoute, private _ingredientService: IngredientService) { 
-    console.log(this._route.snapshot.paramMap.get('ingredientId'));
+  constructor(private _route: ActivatedRoute, 
+    private _ingredientService: IngredientService) { 
+    console.log(this._route.snapshot.paramMap.get('id'));
   }
-  @Input() ingredientId: number;
+  @Input() id: number;
     ingredient: IIngredient;
     errorMessage: any;
 
   ngOnInit() {
-    let id = +this._route.snapshot.paramMap.get('ingredientId');
-    this.ingredientId = id;
+    let id = +this._route.snapshot.paramMap.get('id');
+    this.id = id;
     this._ingredientService.getAll()
     .subscribe(ingredients => this.ingredient = ingredients.filter(function (item) {
-      return item.ingredientId === id})[0] || null,
+      return item.id === id})[0] || null,
     error => this.errorMessage = <any>error);
   }
 
