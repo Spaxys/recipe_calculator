@@ -30,7 +30,7 @@ import { IngredientDeleteComponent } from './ingredients/ingredient-delete.compo
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'recipes', component: RecipeList},
-      { path: 'recipe/:recipeId', component: RecipeDetail},
+      { path: 'recipe/:id', component: RecipeDetail},
       { path: 'ingredients', component: IngredientList},
       { path: 'ingredient/:id', component: IngredientDetail},
       { path: 'ingredient/delete/:id', component: IngredientDeleteComponent},

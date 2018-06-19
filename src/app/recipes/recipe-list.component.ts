@@ -14,20 +14,6 @@ export class RecipeList implements OnInit {
 
   recipes: IRecipe[];
   errorMessage: any;
-  // recipes: IRecipe[] = [
-  // { recipeId: 1,
-  //   recipeName: "Testmat",
-  //  ingredients: []
-  // },
-  // { recipeId: 2,
-  //   recipeName: "Korv Stroganoff",
-  //  ingredients: []
-  // },
-  // { recipeId: 3,
-  //   recipeName: "Chili con Carne",
-  //  ingredients: []
-  // },
-// ]
   ngOnInit() {
     this._recipesService.getRecipes()
     .subscribe(recipes => this.recipes = recipes,

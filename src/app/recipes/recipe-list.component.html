@@ -14,9 +14,9 @@
     </thead>
     <tbody>
       <tr *ngFor='let recipe of recipes'>
-        <td> {{recipe.recipeId}}</td>
+        <td> {{recipe.id}}</td>
         <td> {{recipe.recipeName}}</td>
-        <td><a [routerLink]="['/recipe', recipe.recipeId]">Details</a></td>
+        <td><a [routerLink]="['/recipe', recipe.id]">Details</a></td>
       </tr>
     </tbody>
   </table>

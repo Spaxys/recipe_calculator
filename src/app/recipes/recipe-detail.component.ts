@@ -13,48 +13,18 @@ export class RecipeDetail implements OnInit {
 
 
   constructor(private _route: ActivatedRoute, private _recipesService: RecipeService) { 
-    console.log(this._route.snapshot.paramMap.get('recipeId'));
+    console.log(this._route.snapshot.paramMap.get('id'));
   }
-  @Input() recipeId: number;
+  @Input() id: number;
     recipe: IRecipe;
     errorMessage: any;
-  // recipe: IRecipe =
-  //   { recipeId: 1,
-  //     recipeName: "An english breakfast sandwitch",
-  //    ingredients: [
-  //      {
-  //        ingredientId: 1,
-  //        ingredientDescription: "Strawberry Jam",
-  //        ingredientName: "Jam",
-  //        ingredientPrice: 100
-  //      },
-  //      {
-  //        ingredientId: 2,
-  //        ingredientDescription: "Real butter",
-  //        ingredientName: "Butter",
-  //        ingredientPrice: 10
-  //      },
-  //      {
-  //        ingredientId: 3,
-  //        ingredientDescription: "A white sandwitch",
-  //        ingredientName: "Sandwitch",
-  //        ingredientPrice: 20
-  //      },
-  //      {
-  //        ingredientId: 4,
-  //        ingredientDescription: "Some fine swiss cheese",
-  //        ingredientName: "Cheese",
-  //        ingredientPrice: 35
-  //      },
-  //    ]
-     
-  //   };
   ngOnInit() {
-    let id = +this._route.snapshot.paramMap.get('recipeId');
-    this.recipeId = id;
+    debugger;
+    let id = +this._route.snapshot.paramMap.get('id');
+    this.id = id;
     this._recipesService.getRecipes()
     .subscribe(recipes => this.recipe = recipes.filter(function (item) {
-      return item.recipeId === id})[0] || null,
+      return item.id === id})[0] || null,
     error => this.errorMessage = <any>error);
   }
 

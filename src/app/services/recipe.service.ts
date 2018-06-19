@@ -11,7 +11,8 @@ import { BaseService } from './BaseService.service';
 @Injectable()
 export class RecipeService implements IServiceService{
 
-    private _productUrl = "./assets/json/recipes.json";
+    // private _productUrl = "./assets/json/recipes.json";
+    private _productUrl = "http://localhost:3000/recipes";
 
     constructor(private _http: HttpClient) {}
 
