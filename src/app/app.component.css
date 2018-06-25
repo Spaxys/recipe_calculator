@@ -1,3 +1,11 @@
 .mycontainer {
     text-align: center;
 }
+
+.btnPadded {
+    padding: 2px;
+}
+
+.btnMargined {
+    margin: 2px;
+}
