@@ -1,5 +1,5 @@
-<div class='panel panel-primary' *ngIf='ingredient'>
-  <div class='panel-heading'>
+<div *ngIf='ingredient'>
+  <div>
     <h3>Edit ingredient</h3>
     <div>Ingredient:<input type=text [(ngModel)]='ingredient.ingredientName'/></div>
     <div>Description: <input type=text [(ngModel)]='ingredient.ingredientDescription'/></div>
@@ -7,6 +7,6 @@
   </div>
 </div>
 
-<div><button class='btn btn-primary'
-(click)='put()'>Submit</button></div>
 <a class='btn btn-default' [routerLink]="['/ingredients']">Back</a>
+<button class='btn btn-primary'
+(click)='put()'>Submit</button>
