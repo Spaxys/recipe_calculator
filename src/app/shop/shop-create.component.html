@@ -1,0 +1,8 @@
+<h2>Create shop</h2>
+<div>Name
+  <input type=text 
+[(ngModel)]='shopName'/></div>
+
+<a class='btn btn-default' [routerLink]="['/shops']">Back</a>
+<button class='btn btn-primary'
+(click)='create()'>Create</button>

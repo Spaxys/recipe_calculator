@@ -1,0 +1,28 @@
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    <h3>shop List</h3>
+  </div>
+</div>
+<div class='table-responsive'>
+  <table class='table' *ngIf='shops && shops.length'>
+    <thead class="centeredText">
+      <tr>
+        <th class="col-xs-1">shop id</th>
+        <th>shop name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let shop of shops'>
+        <td> {{shop.id}}</td>
+        <td> {{shop.name}}</td>
+        <td><a [routerLink]="['/shop', shop.id]">Details</a></td>
+        <td><a [routerLink]="['/shop/edit', shop.id]">Edit</a></td>
+        <td><a [routerLink]="['/shop/delete', shop.id]">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<a [routerLink]="['/shops/create']">Create shop</a>
