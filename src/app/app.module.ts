@@ -58,6 +58,8 @@ import { IngredientInShopDeleteComponent } from './ingredientInShop/ingredient-i
       { path: 'ingredients/create', component: IngredientCreateComponent},
       { path: 'shops', component: ShopListComponent},
       { path: 'shops/create', component: ShopCreateComponent},
+      { path: 'ingredientsinshops', component: IngredientInShopListComponent},
+      { path: 'ingredientsinshops/create', component: IngredientInShopCreateComponent},
       { path: 'welcome', component: RecipeList},
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
       { path: '**', component: RecipeList},

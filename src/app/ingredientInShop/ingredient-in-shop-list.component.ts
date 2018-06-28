@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IngredientInShopService } from '../services/ingredientInShop.service';
+import { Router } from '@angular/router';
+import { IIngredientInShop } from '../interfaces/ingredientInShop';
 
 @Component({
   selector: 'app-ingredient-in-shop-list',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientInShopListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _service: IngredientInShopService, 
+    private _router: Router) { }
 
-  ngOnInit() {
-  }
+    ingredientsInShops: IIngredientInShop[];
+    errorMessage: any;
+  
+    ngOnInit() {
+      this._service.getAll()
+      .subscribe(ingredientsInShops => this.ingredientsInShops = ingredientsInShops,
+      error => this.errorMessage = <any>error);
+    }
 
 }

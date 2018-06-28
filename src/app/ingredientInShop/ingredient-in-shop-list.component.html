@@ -1,3 +1,28 @@
-<p>
-  ingredient-in-shop-list works!
-</p>
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    <h3>ingredientInShop List</h3>
+  </div>
+</div>
+<div class='table-responsive'>
+  <table class='table' *ngIf='ingredientsInShops && ingredientsInShops.length'>
+    <thead class="centeredText">
+      <tr>
+        <th class="col-xs-1">ingredientInShop id</th>
+        <th>ingredientInShop name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let ingredientInShop of ingredientsInShops'>
+        <td> {{ingredientInShop.id}}</td>
+        <td> {{ingredientInShop.name}}</td>
+        <td><a [routerLink]="['/ingredientsInShops', ingredientInShop.id]">Details</a></td>
+        <td><a [routerLink]="['/ingredientsInShops/edit', ingredientInShop.id]">Edit</a></td>
+        <td><a [routerLink]="['/ingredientsInShops/delete', ingredientInShop.id]">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<a [routerLink]="['/ingredientsinshops/create']">Create ingredientInShop</a>
