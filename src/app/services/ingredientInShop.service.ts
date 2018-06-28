@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IServiceService } from './IService.service';
 import { Headers } from '@angular/http';
+import 'rxjs/add/operator/do';
+import { ShopService } from './shop.service';
+import { IngredientService } from './ingredient.service';
+// import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class IngredientInShopService implements IServiceService{
@@ -16,7 +20,9 @@ export class IngredientInShopService implements IServiceService{
   private  _httpOptions = {
     'Content-Type': 'application/json'
   };
-    constructor(private _http: HttpClient) {}
+    constructor(private _http: HttpClient, 
+        private _shopService: ShopService,
+        private _ingredientService: IngredientService) {}
 
     getAll(): Observable<any>{
         return this._http.get<any>(this._productUrl);
@@ -30,7 +36,7 @@ export class IngredientInShopService implements IServiceService{
     }
     
     getById(id: any): Observable<any> {
-        throw new Error("Method not implemented.");
+        return this._http.get<IIngredientInShop>(this._productUrl + "/" + id);
     }
     post(object: IIngredientInShop): Observable<any> {
         //If using the http clienct

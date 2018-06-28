@@ -30,7 +30,7 @@ export class IngredientService implements IServiceService{
     }
     
     getById(id: any): Observable<any> {
-        throw new Error("Method not implemented.");
+        return this._http.get<IIngredient>(this._productUrl + "/" + id);
     }
     post(object: IIngredient): Observable<any> {
         //If using the http clienct

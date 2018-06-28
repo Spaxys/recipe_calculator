@@ -30,7 +30,7 @@ export class ShopService implements IServiceService{
     }
     
     getById(id: any): Observable<any> {
-        throw new Error("Method not implemented.");
+        return this._http.get<IShop>(this._productUrl + "/" + id);
     }
     post(object: IShop): Observable<any> {
         //If using the http clienct
