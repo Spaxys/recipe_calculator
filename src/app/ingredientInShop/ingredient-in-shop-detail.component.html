@@ -1,3 +1,14 @@
-<p>
-  ingredient-in-shop-detail works!
-</p>
+<div class='panel panel-primary' *ngIf='ingredientInShop'>
+  <div class='panel-heading'>
+    <h3>ingredientInShop Details</h3>
+    <div>Ingredient Id: {{ingredientInShop.ingredientId}}</div>
+    <div>Shop Id: {{ingredientInShop.shopId}}</div>
+    <div>Name: {{ingredientInShop.name}}</div>
+    <div>Price: {{ingredientInShop.price}}</div>
+    <div>Unit: {{ingredientInShop.unit}}</div>
+    <div>Quantity: {{ingredientInShop.quantity}}</div>
+  </div>
+</div>
+
+<a class='btn btn-default' [routerLink]="['/ingredientsinshops']">Back</a>
+<a class='btn btn-success' [routerLink]="['/ingredientsinshops/edit', ingredientInShopId]">Edit</a>

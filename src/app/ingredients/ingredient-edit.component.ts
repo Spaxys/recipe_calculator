@@ -23,7 +23,6 @@ export class IngredientEditComponent implements OnInit {
   errorMessage: any;
 
   put() {
-    debugger;
     this._ingredientsService.put(this.ingredient.id, this.ingredient).subscribe();
     this._router.navigate(["ingredients"]);
   }

@@ -60,6 +60,8 @@ import { IngredientInShopDeleteComponent } from './ingredientInShop/ingredient-i
       { path: 'shops/create', component: ShopCreateComponent},
       { path: 'ingredientsinshops', component: IngredientInShopListComponent},
       { path: 'ingredientsinshops/create', component: IngredientInShopCreateComponent},
+      { path: 'ingredientsinshops/:id', component: IngredientInShopDetailComponent},
+      { path: 'ingredientsinshops/edit/:id', component: IngredientInShopEditComponent},
       { path: 'welcome', component: RecipeList},
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
       { path: '**', component: RecipeList},

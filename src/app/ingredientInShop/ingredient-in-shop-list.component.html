@@ -18,9 +18,9 @@
       <tr *ngFor='let ingredientInShop of ingredientsInShops'>
         <td> {{ingredientInShop.id}}</td>
         <td> {{ingredientInShop.name}}</td>
-        <td><a [routerLink]="['/ingredientsInShops', ingredientInShop.id]">Details</a></td>
-        <td><a [routerLink]="['/ingredientsInShops/edit', ingredientInShop.id]">Edit</a></td>
-        <td><a [routerLink]="['/ingredientsInShops/delete', ingredientInShop.id]">Delete</a></td>
+        <td><a [routerLink]="['/ingredientsinshops', ingredientInShop.id]">Details</a></td>
+        <td><a [routerLink]="['/ingredientsinshops/edit', ingredientInShop.id]">Edit</a></td>
+        <td><a [routerLink]="['/ingredientsinshops/delete', ingredientInShop.id]">Delete</a></td>
       </tr>
     </tbody>
   </table>

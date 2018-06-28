@@ -1,3 +1,12 @@
-<p>
-  ingredient-in-shop-edit works!
-</p>
+<div *ngIf='ingredientInShop'>
+    <h3>ingredientInShop Edit</h3>
+    <div>Ingredient Id:<input type=text [(ngModel)]='ingredientInShop.ingredientId'/></div>
+    <div>Shop Id:<input type=text [(ngModel)]='ingredientInShop.shopId'/></div>
+    <div>Name:<input type=text [(ngModel)]='ingredientInShop.name'/></div>
+    <div>Price:<input type=number [(ngModel)]='ingredientInShop.price'/></div>
+    <div>Unit:<input type=text [(ngModel)]='ingredientInShop.unit'/></div>
+    <div>Quantity:<input type=number [(ngModel)]='ingredientInShop.quantity'/></div>
+</div>
+
+<a class='btn btn-default' [routerLink]="['/ingredientsinshops']">Back</a>
+<button class='btn btn-primary' (click)='put()'>Submit</button>
