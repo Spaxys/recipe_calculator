@@ -22,6 +22,7 @@ import { IngredientInShopDetailComponent } from './ingredientInShop/ingredient-i
 import { IngredientInShopCreateComponent } from './ingredientInShop/ingredient-in-shop-create.component';
 import { IngredientInShopEditComponent } from './ingredientInShop/ingredient-in-shop-edit.component';
 import { IngredientInShopDeleteComponent } from './ingredientInShop/ingredient-in-shop-delete.component';
+import { SearchAndSelectComponent } from './shared-components/search-and-select/search-and-select.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { IngredientInShopDeleteComponent } from './ingredientInShop/ingredient-i
     IngredientInShopCreateComponent,
     IngredientInShopEditComponent,
     IngredientInShopDeleteComponent,
-    ShopListComponent
+    ShopListComponent,
+    SearchAndSelectComponent
   ],
   imports: [
     BrowserModule,
