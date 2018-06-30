@@ -3,8 +3,15 @@
     <h3>ingredientInShop List</h3>
   </div>
 </div>
+<div class='row'>
+    <div class='col-md-2'>Filter by:</div>
+    <div class='col-md-4'>
+        <input type=text 
+        [(ngModel)]='listFilter'/>
+    </div>
+</div>
 <div class='table-responsive'>
-  <table class='table' *ngIf='ingredientsInShops && ingredientsInShops.length'>
+  <table class='table' *ngIf='filteredIngredientsInShops && filteredIngredientsInShops.length'>
     <thead class="centeredText">
       <tr>
         <th class="col-xs-1">ingredientInShop id</th>
@@ -15,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let ingredientInShop of ingredientsInShops'>
+      <tr *ngFor='let ingredientInShop of filteredIngredientsInShops'>
         <td> {{ingredientInShop.id}}</td>
         <td> {{ingredientInShop.name}}</td>
         <td><a [routerLink]="['/ingredientsinshops', ingredientInShop.id]">Details</a></td>

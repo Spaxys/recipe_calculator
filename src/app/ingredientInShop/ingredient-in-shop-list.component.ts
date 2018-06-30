@@ -14,12 +14,34 @@ export class IngredientInShopListComponent implements OnInit {
     private _router: Router) { }
 
     ingredientsInShops: IIngredientInShop[];
-    errorMessage: any;
+    filteredIngredientsInShops: IIngredientInShop[];
+    errorMessage: any;    
+    _listFilter: string;
+    get listFilter(): string {
+      return this._listFilter;
+  }
+  set listFilter(value:string) {
+      console.log("Filtering by value: " + value);
+      this._listFilter = value;
+      this.filteredIngredientsInShops = this.listFilter? this.performFilter(this.listFilter) : this.ingredientsInShops;
+  }
   
     ngOnInit() {
       this._service.getAll()
-      .subscribe(ingredientsInShops => this.ingredientsInShops = ingredientsInShops,
+      .subscribe(ingredientsInShops => {
+        console.log(ingredientsInShops);
+        this.ingredientsInShops = ingredientsInShops;
+        this.filteredIngredientsInShops = this.ingredientsInShops;
+       },
       error => this.errorMessage = <any>error);
     }
+
+    performFilter(filterBy: string): IIngredientInShop[] {
+      filterBy = filterBy.toLocaleLowerCase();
+      var selectedItems = this.ingredientsInShops.filter((ingredientsInShops: IIngredientInShop) =>
+  ingredientsInShops.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+      console.log(selectedItems);
+      return selectedItems;
+  }
 
 }
