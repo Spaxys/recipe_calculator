@@ -13,7 +13,7 @@ export class SearchAndSelectComponent implements OnInit {
 
   //Fields and properties
   @Input() options: IKeyAndValue[];
-  @Input() filterPropertyName: string;
+  // @Input() filterPropertyName: string;
   filteredOptions: IKeyAndValue[];
 
   selectedValue: any;
@@ -33,6 +33,7 @@ export class SearchAndSelectComponent implements OnInit {
 
   //Methods
   ngOnInit() {
+    console.log("Calling ngOnInit()...")
     this.selectedValue = null;
     this.filteredOptions = this.options;
   }
@@ -42,16 +43,24 @@ export class SearchAndSelectComponent implements OnInit {
   }
 
   ngOnChanges(): void {
+    console.log("Callng ngOnChanges()...");
+    if(this._listFilter) {
     var selectedItem = this.options.filter((item: IKeyAndValue) =>
     item.key.toLocaleLowerCase() === this._listFilter.toLocaleLowerCase())[0];
-    console.log("Selected Item Key: " + selectedItem.key + ", Value: " + selectedItem.value);
+    if(selectedItem) {
+      console.log("Selected Item Key: " + selectedItem.key + ", Value: " + selectedItem.value);
+    }
+    else {
+      console.log("No item selected");
+    }
     this.selectedValue = selectedItem.value;
+  }
   }
 
   performFilter(filterBy: string): IKeyAndValue[] {
     filterBy = filterBy.toLocaleLowerCase();
     var selectedItems = this.options.filter((item: any) =>
-      item[this.filterPropertyName].toLocaleLowerCase().indexOf(filterBy) !== -1);
+      item.key.toLocaleLowerCase().indexOf(filterBy) !== -1);
     console.log(selectedItems);
     return selectedItems;
   }

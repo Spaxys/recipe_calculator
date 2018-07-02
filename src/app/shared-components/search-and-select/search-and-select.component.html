@@ -1,3 +1,18 @@
 <p>
   search-and-select works!
 </p>
+
+<div id="searchField">
+  Input shop name: <input type="text"
+    [(ngModel)]='listFilter'>
+</div>
+
+<div id="resultList" *ngIf='filteredOptions && filteredOptions.length'>
+  <div *ngFor='let option of filteredOptions'>
+    {{option.key}}
+  </div>
+</div>
+<br />
+<div id='submitButton' class='btn btn-default'
+    (click)="submitButtonClicked()">Submit
+</div>

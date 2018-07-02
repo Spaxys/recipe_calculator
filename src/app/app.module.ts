@@ -23,6 +23,8 @@ import { IngredientInShopCreateComponent } from './ingredientInShop/ingredient-i
 import { IngredientInShopEditComponent } from './ingredientInShop/ingredient-in-shop-edit.component';
 import { IngredientInShopDeleteComponent } from './ingredientInShop/ingredient-in-shop-delete.component';
 import { SearchAndSelectComponent } from './shared-components/search-and-select/search-and-select.component';
+import { TestSharedSearchAndSelectComponent } from './test-components/test-shared-search-and-select/test-shared-search-and-select.component';
+import { TestIndexComponent } from './test-components/test-index.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,13 +46,17 @@ import { SearchAndSelectComponent } from './shared-components/search-and-select/
     IngredientInShopEditComponent,
     IngredientInShopDeleteComponent,
     ShopListComponent,
-    SearchAndSelectComponent
+    SearchAndSelectComponent,
+    TestSharedSearchAndSelectComponent,
+    TestIndexComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+      
+      //Entity paths
       { path: 'recipes', component: RecipeList},
       { path: 'recipe/:id', component: RecipeDetail},
       { path: 'ingredients', component: IngredientList},
@@ -64,6 +70,11 @@ import { SearchAndSelectComponent } from './shared-components/search-and-select/
       { path: 'ingredientsinshops/create', component: IngredientInShopCreateComponent},
       { path: 'ingredientsinshops/:id', component: IngredientInShopDetailComponent},
       { path: 'ingredientsinshops/edit/:id', component: IngredientInShopEditComponent},
+      //Test paths
+      { path: 'tests', component: TestIndexComponent},
+      { path: 'tests/test-shared-search-and-select', component: TestSharedSearchAndSelectComponent},
+
+      //Default paths
       { path: 'welcome', component: RecipeList},
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
       { path: '**', component: RecipeList},
