@@ -39,22 +39,29 @@ export class SearchAndSelectComponent implements OnInit {
   }
 
   onSubmitClicked() {
+    this.selectAnOption();
     this.submitClicked.emit(`The selected value ${this.selectedValue} was submitted!`);
   }
 
   ngOnChanges(): void {
-    console.log("Callng ngOnChanges()...");
-    if(this._listFilter) {
-    var selectedItem = this.options.filter((item: IKeyAndValue) =>
-    item.key.toLocaleLowerCase() === this._listFilter.toLocaleLowerCase())[0];
-    if(selectedItem) {
-      console.log("Selected Item Key: " + selectedItem.key + ", Value: " + selectedItem.value);
-    }
-    else {
-      console.log("No item selected");
-    }
-    this.selectedValue = selectedItem.value;
+    console.log("Calling ngOnChanges()...");
+    
   }
+
+  selectAnOption(): void {
+    console.log("Calling selectAnOption()...");
+    if(this._listFilter) {
+      var selectedItem = this.options.filter((item: IKeyAndValue) =>
+      item.key.toLocaleLowerCase() === this._listFilter.toLocaleLowerCase())[0];
+      if(selectedItem) {
+        console.log("Selected Item Key: " + selectedItem.key + ", Value: " + selectedItem.value);
+        this.selectedValue = selectedItem.value;
+      }
+      else {
+        console.log("No item selected");
+      }
+    }
+    console.log("Option with value " + this.selectedValue + " selected.");
   }
 
   performFilter(filterBy: string): IKeyAndValue[] {
@@ -64,4 +71,6 @@ export class SearchAndSelectComponent implements OnInit {
     console.log(selectedItems);
     return selectedItems;
   }
+
+
 }

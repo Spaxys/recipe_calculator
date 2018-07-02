@@ -21,8 +21,12 @@ export class TestSharedSearchAndSelectComponent implements OnInit {
       key: "City Gross", value: "3" 
     }
   ];
+  pageTitle = "Select a value and click Submit";
 
   ngOnInit() {
   }
 
+  onSubmitClicked(message: string): void {
+    this.pageTitle = 'Selected value: ' + message;
+}
 }

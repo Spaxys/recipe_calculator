@@ -1,4 +1,3 @@
-<p>
-  test-shared-search-and-select works!
-</p>
-<app-search-and-select [options]='options'></app-search-and-select>
+<h1>{{pageTitle}}</h1>
+<app-search-and-select [options]='options'
+  (submitClicked)='onSubmitClicked($event)'></app-search-and-select>
