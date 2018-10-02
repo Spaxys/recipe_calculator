@@ -1,0 +1,39 @@
+<h2>Create ingredientInShop</h2>
+
+
+<div>Ingredient Id
+  <!-- <input type=text 
+[(ngModel)]='ingredientId'/></div> -->
+<select (change)='ingredientChanged($event.target.value)'>
+    <option *ngFor='let ingredient of ingredients' value = {{ingredient.id}}>
+      {{ingredient.ingredientName}}
+    </option>
+</select>
+</div>
+
+<div>Shop Id
+<!-- <input type=text 
+[(ngModel)]='shopId'/></div> -->
+<select (change)='shopChanged($event.target.value)'>
+      <option *ngFor='let shop of shops' value = {{shop.id}}>
+        {{shop.name}}
+      </option>
+</select>
+</div>
+
+<div>Name
+  <input type=text 
+[(ngModel)]='name'/></div>
+<div>Price
+  <input type=number 
+[(ngModel)]='price'/></div>
+<div>Unit
+  <input type=text 
+[(ngModel)]='unit'/></div>
+<div>Quantity
+  <input type=number 
+[(ngModel)]='quantity'/></div>
+
+<a class='btn btn-default' [routerLink]="['/ingredientsinshops']">Back</a>
+<button class='btn btn-primary'
+(click)='create()'>Create</button>

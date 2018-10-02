@@ -25,6 +25,7 @@ import { IngredientInShopDeleteComponent } from './ingredientInShop/ingredient-i
 import { SearchAndSelectComponent } from './shared-components/search-and-select/search-and-select.component';
 import { TestSharedSearchAndSelectComponent } from './test-components/test-shared-search-and-select/test-shared-search-and-select.component';
 import { TestIndexComponent } from './test-components/test-index.component';
+import { IngredientInShopCreateCompositeComponent } from './ingredientInShop/ingredient-in-shop-create-composite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { TestIndexComponent } from './test-components/test-index.component';
     ShopListComponent,
     SearchAndSelectComponent,
     TestSharedSearchAndSelectComponent,
-    TestIndexComponent
+    TestIndexComponent,
+    IngredientInShopCreateCompositeComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,7 @@ import { TestIndexComponent } from './test-components/test-index.component';
       { path: 'shops/create', component: ShopCreateComponent},
       { path: 'ingredientsinshops', component: IngredientInShopListComponent},
       { path: 'ingredientsinshops/create', component: IngredientInShopCreateComponent},
+      { path: 'ingredientsinshops/createcomposite', component: IngredientInShopCreateCompositeComponent},
       { path: 'ingredientsinshops/:id', component: IngredientInShopDetailComponent},
       { path: 'ingredientsinshops/edit/:id', component: IngredientInShopEditComponent},
       //Test paths
